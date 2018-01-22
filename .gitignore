@@ -1,0 +1,8 @@
+!containers/gitlab/config/.gitkeep
+!containers/gitlab/logs/.gitkeep
+!containers/gitlab/data/.gitkeep
+containers/gitlab/config/
+containers/gitlab/logs/
+containers/gitlab/data/
+.idea/
+.env

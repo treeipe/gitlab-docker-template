@@ -1,0 +1,19 @@
+version: "3"
+services:
+  web:
+    image: 'gitlab/gitlab-ce:latest'
+    container_name: 'gitlab.treeipe.com'
+    hostname: 'gitlab.treeipe.com'
+    restart: always
+    environment:
+      GITLAB_OMNIBUS_CONFIG: |
+        external_url 'http://gitlab.treeipe.com:9090'
+        gitlab_rails['gitlab_shell_ssh_port'] = 2224
+        # Add any other gitlab.rb configuration here, each on its own line
+    ports:
+      - '9090:9090'
+      - '2224:22'
+    volumes:
+      - "./containers/gitlab/config:/etc/gitlab"
+      - "./containers/gitlab/logs:/var/log/gitlab"
+      - "./containers/gitlab/data:/var/opt/gitlab"
